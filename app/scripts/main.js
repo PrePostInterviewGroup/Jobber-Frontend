@@ -1,33 +1,17 @@
 
-
-// var createUserURL = 'https://pre-post-interview.herokuapp.com/users',
-//     user = {
-//       email: 'h@h.com',
-//       password: 'password'
-//     };
-
-// $.post(createUserURL, {user: user}, function (data) {
-//   console.log(data);
-// });
-
-
-// var linkedInURL = 'https://api.linkedin.com/v1/people';
-
-// $.getJSON(linkedInURL, function (res) {
-//   console.log(res);
-// });
-
-
 ;(function () {
   'use strict';
 
   angular.module('app', [
     'ngRoute',
-    'users'
+    'nav',
+    'users',
+    'companies'
   ])
 
-  .constant('HEROKU', {
-    URL: 'https://pre-post-interview.herokuapp.com/'
+  .constant('JOBBER', {
+    URL: 'http://brian.t.proxylocal.com/'
+    // URL: 'https://pre-post-interview.herokuapp.com/'
   })
 
   .constant('LINKEDIN', {
@@ -58,11 +42,11 @@
       })
       .when('/profile', {
         templateUrl: 'scripts/users/user.profile.html',
-        // controller: 'Users'
+        controller: 'UserProfile'
       })
       .when('/companies', {
         templateUrl: 'scripts/companies/companies.html',
-        // controller: 'Companies'
+        controller: 'Companies'
       })
       .when('/jobs', {
         templateUrl: 'scripts/jobs/jobs.html',
@@ -73,7 +57,16 @@
       //   controller: 'Schedule'
       })
       .otherwise('/');
+  })
+
+  .run(function ($rootScope, $location) {
+    $rootScope.$on('$routeChangeStart', function () {
+
+      console.log('Route request: ', $location.path());
+
+    });
   });
+
 
 }());
 

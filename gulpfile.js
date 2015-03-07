@@ -21,7 +21,7 @@ gulp.task('styles', function () {
 
 gulp.task('html', ['styles'], function () {
 
-  return gulp.src('app/*.html')
+  return gulp.src('app/**/*.html')
     .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
     .pipe($.if('*.css', $.csso()))
     .pipe($.useref.restore())
@@ -39,8 +39,8 @@ gulp.task('images', function () {
 });
 
 gulp.task('fonts', function () {
-  return gulp.src('app/fonts/**/*')
-    .pipe(gulp.dest('dist/fonts'));
+  return gulp.src('app/font/**/*')
+    .pipe(gulp.dest('dist/font'));
 });
 
 gulp.task('extras', function () {
