@@ -28,7 +28,7 @@
         $http.post(HEROKU.URL + 'users', userObj)
           .success(function (res) {
             self.setCookie(res);
-            $location.path(PATHS.HOME);
+            // $location.path(PATHS.HOME);
             broadcast('signup');
           })
           .error(function (res) {

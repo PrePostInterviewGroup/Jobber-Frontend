@@ -1,8 +1,31 @@
 
-// Custom Styles
-// body {
-//   background: #fafafa;
-//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-//   color: #333;
-// }
+// Variables
+
+$cBrand: #88d2c3;
+$cBrandDark20: darken($cBrand, 20%);
+$cBrandDark10: darken($cBrand, 10%);
+$cBrandLight25: lighten($cBrand, 25%);
+
+body {
+  background: $cBrandLight25;
+  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #999;
+}
+
+.btn {
+  background: $cBrandDark20;
+  &:hover {
+    background: $cBrandDark10;
+  }
+}
+
+nav {
+  background: darken($cBrand, 10%);
+}
+
+.card {
+  padding-top: 35px;
+  border-radius: 3px;
+  background: white;
+}
 
