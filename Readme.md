@@ -12,7 +12,7 @@ The Iron Yard and Soltech put together a Hack-a-thon from March 6-8.  The follow
 
 **Summary**:
 
-This app makes organizing and tracking your job search activity eady while providing helpful tips along the way.
+This app makes organizing and tracking your job search activity easy while providing helpful tips along the way.
 
 **Target Audience**:
 
