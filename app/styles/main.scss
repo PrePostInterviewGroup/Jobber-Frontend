@@ -1,15 +1,14 @@
 
-// Variables
-
+// Colors
 $cBrand: #88d2c3;
 $cBrandDark20: darken($cBrand, 20%);
 $cBrandDark10: darken($cBrand, 10%);
 $cBrandLight25: lighten($cBrand, 25%);
+$cGray9: #999;
 
 body {
   background: $cBrandLight25;
-  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #999;
+  color: $cGray9;
 }
 
 .btn {
@@ -23,9 +22,47 @@ nav {
   background: darken($cBrand, 10%);
 }
 
-.card {
-  padding-top: 35px;
-  border-radius: 3px;
-  background: white;
+form {
+  margin-top: 35px;
+}
+
+section.body {
+  overflow: hidden;
+  margin-top: 40px;
+  .body-title {
+    margin-top: 0;
+    font-size: 3rem;
+  }
+  .view-frame-left, .view-frame-right {
+    float: left;
+    width: 50%;
+    padding: 0 5px;
+    }
+  .column-header {
+    overflow: hidden;
+    .column-header-text {
+      float: left;
+      h4 {
+        margin-left: 5px;
+      }
+    }
+    .adder {
+      // float: right;
+      float: left;
+      margin: 15px 25px;
+    }
+  }
+  .view-content {
+    overflow: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    background-color: white;
+    &.detail {
+      padding-top: 35px;
+    }
+    .collection {
+      margin: 0;
+    }
+  }
 }
 

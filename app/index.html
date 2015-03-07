@@ -22,8 +22,9 @@
       <div class="nav-wrapper">
         <div class="container">
           <a href="#!" class="brand-logo">Logo</a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#/companies"><i class="mdi-social-location-city left"></i>Companies</a></li>
+          <ul class="right hide-on-sm-and-down">
+            <!-- <li><a href="#/companies"><i class="mdi-social-location-city left"></i>Companies</a></li> -->
+            <li><a href="#/companies"><i class="mdi-social-location-city left"></i>Jobs</a></li>
             <li><a href="#/upcoming"><i class="mdi-action-today left"></i>Upcoming</a></li>
             <li><a href="#/profile"><i class="mdi-action-settings left"></i>Profile</a></li>
           </ul>
@@ -32,9 +33,7 @@
     </nav>
 
     <div class="container">
-
-      <div class="row" ng-view></div>
-
+      <section class="body row" ng-view></section>
     </div>
 
     <!-- build:js scripts/vendor.js -->
@@ -51,8 +50,13 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
 
+    <script src="scripts/nav/nav.js"></script>
+
     <script src="scripts/users/users.js"></script>
     <script src="scripts/users/users.factory.js"></script>
+
+    <script src="scripts/companies/companies.js"></script>
+    <script src="scripts/companies/companies.factory.js"></script>
     <!-- endbuild -->
 </body>
 </html>
