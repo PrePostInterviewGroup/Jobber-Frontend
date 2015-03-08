@@ -2,11 +2,11 @@
 ;(function () {
   'use strict';
 
-  angular.module('app', [
+  angular.module('jobber', [
     'ngRoute',
-    'users',
-    'events',
-    'jobs'
+    'jobber.users',
+    'jobber.events',
+    'jobber.jobs'
   ])
 
   .constant('JOBBER', {

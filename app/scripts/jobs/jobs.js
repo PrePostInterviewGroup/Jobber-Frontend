@@ -2,7 +2,7 @@
 ;(function () {
   'use strict';
 
-  angular.module('jobs', [])
+  angular.module('jobber.jobs', [])
 
   .controller('Jobs', function ($scope, $location, UsersFactory, CompaniesFactory, JobsFactory) {
 

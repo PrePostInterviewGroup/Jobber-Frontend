@@ -2,7 +2,7 @@
 ;(function () {
   'use strict';
 
-  angular.module('events', [])
+  angular.module('jobber.events', [])
 
   .controller('Events', function ($scope, $location, UsersFactory) {
 

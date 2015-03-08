@@ -2,7 +2,7 @@
 ;(function () {
   'use strict';
 
-  angular.module('users', ['ngCookies'])
+  angular.module('jobber.users', ['ngCookies'])
 
   .controller('Users', function ($scope, $rootScope, $location, UsersFactory) {
 

@@ -2,7 +2,7 @@
 ;(function () {
   'use strict';
 
-  angular.module('users')
+  angular.module('jobber.users')
 
   .factory('UsersFactory', function ($http, $rootScope, $cookieStore, $location, JOBBER, AWS, PATHS) {
 
