@@ -15,10 +15,7 @@
       </div>
       <div class="view-content">
         <div class="collection">
-          <a href="#/jobs" class="collection-item">Coca-Cola</a>
-          <a href="#/jobs" class="collection-item active">Home Depot</a>
-          <a href="#/jobs" class="collection-item">Sky High</a>
-          <a href="#/jobs" class="collection-item">Williamsons</a>
+          <a ng-repeat="company in companies" ng-click="showJobs(company)" class="collection-item">{{ company.name }}</a>
         </div>
       </div>
     </div>
@@ -34,8 +31,7 @@
       </div>
       <div class="view-content">
         <div class="collection">
-          <a href="#/jobs" class="collection-item active">Sr. Developer</a>
-          <a href="#/jobs" class="collection-item">Project Manager</a>
+          <a ng-repeat="job in jobs" ng-click="showJobDetails(job)" ng-class="{active: false}" class="collection-item">{{ job.title }}</a>
         </div>
       </div>
     </div>
@@ -43,34 +39,47 @@
 
   <div class="row">
 
-    <div class="column-header">
-      <div class="column-header-text"><h4>Opportunity Details</h4></div>
+    <div class="view-frame-left">
+      <div class="column-header">
+        <div class="column-header-text"><h4>Opportunity Details</h4></div>
+      </div>
+
+      <div class="view-content opp-details">
+        <div class="row">
+          <div class="input-field col s12">
+            <input ng-model="job.summary" id="summary" type="text" class="validate">
+            <label ng-class="{active: job.summary}" for="summary">Summary</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input ng-model="job.lead" id="lead" type="text" class="validate">
+            <label ng-class="{active: job.lead}" for="lead">Who provided the lead</label>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="view-content opp-details">
-
-      <div class="row">
-        <div class="input-field col s12">
-          <input ng-model="job.summary" id="summary" type="text" class="validate">
-          <label for="summary">Summary</label>
+    <div class="view-frame-right">
+      <div class="column-header">
+        <div class="column-header-text"><h4>Schedule</h4></div>
+        <div class="adder">
+          <a ng-click="openEventModal()" class="waves-effect waves-circle waves-light btn-floating secondary-content">
+          <i class="mdi-content-add"></i>
+          </a>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input ng-model="job.lead" id="lead" type="text" class="validate">
-          <label for="lead">Who provided the lead</label>
+      <div class="view-content">
+        <div class="collection">
+          <div class="collection-item"><div>{{ event.name }}<a ng-click="showEventDetails(event)" class="secondary-content">{{ event.date }}</a></div></div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="phoneScreenDate" type="date" class="datepicker">
-          <label for="phoneScreenDate">Phone screen date</label>
-        </div>
-      </div>
-
     </div>
+
   </div>
+
+
+  <!-- Modal farm -->
 
   <div id="addCompany" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -134,6 +143,38 @@
       <span ng-click="submitJob(job)" class="waves-effect waves-green btn-flat modal-action modal-close">Submit</span>
     </div>
   </div>
+
+
+  <div id="addEvent" class="modal modal-fixed-footer date-modal">
+    <div class="modal-content date-modal-content">
+      <h4>Event Setup</h4>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input ng-model="event.name" id="name" type="text" class="validate">
+          <label ng-class="{active: event.name}" for="name">Event Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="datePicker" type="date" class="datepicker">
+          <label for="datePicker">Interview</label>
+        </div>
+      </div>
+
+      <div ng-show="error" class="card-panel">
+        <span class="pink-text text">{{ error }}</span>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <span ng-click="submitEvent(event)" class="waves-effect waves-green btn-flat modal-action modal-close">Submit</span>
+    </div>
+  </div>
+
+
+
 
 </div>
 

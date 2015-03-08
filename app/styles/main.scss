@@ -87,11 +87,19 @@ input.file-path {
 
 .btn.file-upload {
   padding: 0 10px;
-  margin-left: 51px;
+  margin-left: 23px;
 }
 
 .register-text {
   line-height: 55px;
+}
+
+.modal.modal-fixed-footer.date-modal {
+  height: 650px;
+  max-height: none;
+  .date-modal-content {
+    padding-bottom: 338px;
+  }
 }
 
 section.body {

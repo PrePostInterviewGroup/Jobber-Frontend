@@ -12,11 +12,6 @@
       return $cookieStore.get('jobberUser');
     };
 
-    var config = function () {
-      var token = cookie().user.authentication_token;
-      return {headers: {authentication_token: token}};
-    };
-
     var broadcast = function(action, obj) {
       $rootScope.$broadcast('user:' + action, obj);
     };
@@ -96,8 +91,14 @@
         $location.path('/signin');
       },
 
+      config: function () {
+        var token = cookie().user.authentication_token;
+        return {headers: {authentication_token: token}};
+      },
+
+
       update: function (userObj) {
-        $http.post(JOBBER.URL + 'user_profile', {user: userObj}, config())
+        $http.post(JOBBER.URL + 'user_profile', {user: userObj}, this.config())
           .success(function (res) {
             console.log('update success res: ', res);
             broadcast('update');
@@ -109,7 +110,7 @@
       },
 
       deleteResume: function (id) {
-        $http.delete(JOBBER.URL + 'user_resume/' + id, config());
+        $http.delete(JOBBER.URL + 'user_resume/' + id, this.config());
       }
 
     };

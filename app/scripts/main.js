@@ -33,14 +33,5 @@
     HOME: '/events'
   });
 
-  // .run(function ($rootScope, $location) {
-  //   $rootScope.$on('$routeChangeStart', function () {
-
-  //     console.log('Route request: ', $location.path());
-
-  //   });
-  // });
-
-
 }());
 
