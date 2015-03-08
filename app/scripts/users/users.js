@@ -21,7 +21,7 @@
     // };
 
     // Redirect if signed in (and leave this controller).
-    if (UsersFactory.getCookie()) return $location.path('/');
+    if (UsersFactory.getCookie()) return $location.path('/dashboard');
 
     $scope.signup = function (user) {
       if (user.password === user.password_confirmation) {
@@ -50,7 +50,10 @@
 
   })
 
-  .controller('UserProfile', function ($scope, UsersFactory) {
+  .controller('UserProfile', function ($scope, $location, UsersFactory) {
+
+    // Redirect if signed in (and leave this controller).
+    if (!UsersFactory.getCookie()) return $location.path('/signin');
 
     $scope.signOut = function() {
       UsersFactory.signout();

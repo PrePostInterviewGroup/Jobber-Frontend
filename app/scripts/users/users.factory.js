@@ -53,24 +53,6 @@
           });
       },
 
-      // signin: function (userObj) {
-      //   return $http({
-      //     method: 'GET',
-      //     url: JOBBER.URL + 'login',
-      //     headers: PARSE.CONFIG.headers,
-      //     params: userObj
-      //   })
-      //     .success(function (res) {
-      //       console.log(res);
-      //       $cookieStore.put('jobsUser', res);
-      //       $location.path(PATHS.HOME);
-      //       broadcast('signin');
-      //     })
-      //     .error(function (res) {
-      //       broadcast('signinError', res.messages[0]);
-      //     });
-      // },
-
       signout: function () {
         $cookieStore.remove('jobsUser');
         $location.path('/signin');

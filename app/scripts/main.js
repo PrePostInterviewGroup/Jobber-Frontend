@@ -4,14 +4,14 @@
 
   angular.module('app', [
     'ngRoute',
-    'nav',
     'users',
-    'companies'
+    'events',
+    'jobs'
   ])
 
   .constant('JOBBER', {
-    URL: 'http://brian.t.proxylocal.com/'
-    // URL: 'https://pre-post-interview.herokuapp.com/'
+    // URL: 'http://brian.t.proxylocal.com/'
+    URL: 'https://pre-post-interview.herokuapp.com/'
   })
 
   .constant('LINKEDIN', {
@@ -28,10 +28,6 @@
 
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'scripts/dashboard/dashboard.html',
-      //   controller: 'Dashboard'
-      })
       .when('/signup', {
         templateUrl: 'scripts/users/user.signup.html',
         controller: 'Users'
@@ -40,23 +36,19 @@
         templateUrl: 'scripts/users/user.signin.html',
         controller: 'Users'
       })
-      .when('/profile', {
-        templateUrl: 'scripts/users/user.profile.html',
+      .when('/settings', {
+        templateUrl: 'scripts/users/user.settings.html',
         controller: 'UserProfile'
       })
-      .when('/companies', {
-        templateUrl: 'scripts/companies/companies.html',
-        controller: 'Companies'
+      .when('/dashboard', {
+        templateUrl: 'scripts/events/events.html',
+        controller: 'Events'
       })
       .when('/jobs', {
         templateUrl: 'scripts/jobs/jobs.html',
-        // controller: 'Jobs'
+        controller: 'Jobs'
       })
-      .when('/upcoming', {
-        templateUrl: 'scripts/schedule/schedule.html',
-      //   controller: 'Schedule'
-      })
-      .otherwise('/');
+      .otherwise('/dashboard');
   })
 
   .run(function ($rootScope, $location) {

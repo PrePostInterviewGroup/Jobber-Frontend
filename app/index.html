@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
     <link rel="stylesheet" href="../bower_components/materialize/bin/materialize.css" />
     <!-- endbower -->
+    <link rel="stylesheet" href="./font/flaticon/flaticon.css">
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
@@ -17,26 +18,23 @@
     <!-- endbuild -->
   </head>
   <body>
-
     <div class = "navbar-fixed">
       <nav class="header">
         <div class="nav-wrapper">
           <div class="container">
-            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#/dashboard" class="brand-logo">Jobber</a>
             <ul class="right hide-on-sm-and-down">
               <!-- <li><a href="#/companies"><i class="mdi-social-location-city left"></i>Companies</a></li> -->
-              <li><a href="#/companies"><i class="mdi-social-location-city left"></i>Jobs</a></li>
-              <li><a href="#/upcoming"><i class="mdi-action-today left"></i>Upcoming</a></li>
-              <li><a href="#/profile"><i class="mdi-action-settings left"></i>Profile</a></li>
+              <li><a href="#/dashboard"><i class="flaticon-home63 left"></i>Dashboard</a></li>
+              <li><a href="#/jobs"><i class="flaticon-business148 left"></i>Jobs</a></li>
+              <li><a href="#/settings"><i class="flaticon-settings49 left"></i>Settings</a></li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
 
-    <div class="container">
-      <section class="body row" ng-view></section>
-    </div>
+    <section class="body row" ng-view></section>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -52,13 +50,13 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
 
-    <script src="scripts/nav/nav.js"></script>
+    <script src="scripts/events/events.js"></script>
 
     <script src="scripts/users/users.js"></script>
     <script src="scripts/users/users.factory.js"></script>
 
-    <script src="scripts/companies/companies.js"></script>
-    <script src="scripts/companies/companies.factory.js"></script>
+    <script src="scripts/jobs/jobs.js"></script>
+    <script src="scripts/jobs/jobs.factory.js"></script>
     <!-- endbuild -->
 </body>
 </html>
