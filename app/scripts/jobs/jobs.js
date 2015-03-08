@@ -4,7 +4,8 @@
 
   angular.module('jobs', [])
 
-    .controller('Jobs', function ($scope, $location, UsersFactory, JobsFactory) {
+    .controller('Jobs', function ($scope, $location, UsersFactory, CompaniesFactory, JobsFactory) {
+    // .controller('Jobs', function ($scope, $location, UsersFactory, JobsFactory) {
 
       // Redirect if not signed in
       if (!UsersFactory.getCookie()) return $location.path('/signin');
@@ -39,11 +40,11 @@
 
         console.log(job);
 
-        // if ($scope.isNewJob) {
-        //   JobsFactory.create(job);
-        // } else {
-        //   JobsFactory.update(job);
-        // }
+        if ($scope.isNewJob) {
+          JobsFactory.create(job);
+        } else {
+          JobsFactory.update(job);
+        }
       };
 
     });

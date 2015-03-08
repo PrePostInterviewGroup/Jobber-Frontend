@@ -4,10 +4,10 @@
 
   angular.module('jobs')
 
-    .factory('JobsFactory', function ($http, $rootScope, $location, JOBBER, PATHS, UsersFactory) {
+    .factory('CompaniesFactory', function ($http, $rootScope, $location, JOBBER, PATHS, UsersFactory) {
 
       var broadcast = function(action, obj) {
-        $rootScope.$broadcast('jobs:' + action, obj);
+        $rootScope.$broadcast('companies:' + action, obj);
       };
 
       return {
@@ -15,7 +15,7 @@
         create: function (obj) {
           console.log('obj: ', obj);
           console.log('config(): ', UsersFactory.config());
-          $http.post(JOBBER.URL + 'job', obj, UsersFactory.config())
+          $http.post(JOBBER.URL + 'company', obj, UsersFactory.config())
             .success(function (res) {
 
               console.log('res: ', res);
@@ -26,6 +26,15 @@
 
               broadcast('created', obj);
             });
+        },
+
+        retrieveAll: function () {
+
+          // TODO:
+          // Need to return falsey if no data (Dashboard page
+          // will not be default home page in this case).
+
+          return $http.get(JOBBER.URL + 'company', UsersFactory.config());
         },
 
         update: function(obj) {
