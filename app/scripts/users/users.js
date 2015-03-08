@@ -6,20 +6,6 @@
 
   .controller('Users', function ($scope, $rootScope, $location, UsersFactory) {
 
-    // var updateUserMenuState = function () {
-    //   // $scope.user = UsersFactory.getCookie();
-    //   // $scope.signedIn = ($scope.user) ? true : false;
-    //   $scope.showUserMenu = false;
-
-    //   var user = UsersFactory.getCookie();
-    //   if (user) {
-    //     $scope.signedIn = true;
-    //     $scope.user = user;
-    //   } else {
-    //     $scope.signedIn = false;
-    //   }
-    // };
-
     // Redirect if signed in (and leave this controller).
     if (UsersFactory.getCookie()) return $location.path('/dashboard');
 
@@ -39,18 +25,24 @@
     };
 
 
-    // Listen for signup/signin error broadcast.
-    $rootScope.$on('userAuth:signupError', function (event, r) {
-      $scope.error = r;
+    // Listen for signup/signin broadcasts.
+
+    $rootScope.$on('user:signin', function (event, data) {
+      $scope.user = data.user;
+      console.log('$scope.user: ', $scope.user);
     });
 
-    $rootScope.$on('userAuth:signinError', function (event, r) {
-      $scope.error = r;
+    $rootScope.$on('user:signupError', function (event, data) {
+      $scope.error = data;
+    });
+
+    $rootScope.$on('user:signinError', function (event, data) {
+      $scope.error = data;
     });
 
   })
 
-  .controller('UserProfile', function ($scope, $location, UsersFactory) {
+  .controller('UserProfile', function ($scope, $rootScope, $location, UsersFactory) {
 
     // Redirect if signed in (and leave this controller).
     if (!UsersFactory.getCookie()) return $location.path('/signin');
@@ -59,6 +51,16 @@
       UsersFactory.signout();
       // $scope.user = {};
     };
+
+    $scope.addAddress = function (user) {
+      console.log(user);
+      UsersFactory.update(user);
+    };
+
+    // Listen for update error broadcast.
+    $rootScope.$on('user:updateError', function (event, data) {
+      $scope.error = data;
+    });
 
   });
 

@@ -6,13 +6,6 @@
 
     .factory('JobsFactory', function ($http, $rootScope, $location, JOBBER, PATHS, UsersFactory) {
 
-      var config = function () {
-        var token = UsersFactory.getCookie().user.authentication_token;
-        // return {headers: {authentication_token: token}};
-        // return {headers: {authentication_token: 'abcdefghijklmnopqrst'}};
-        return {headers: {authentication_token: 'sZHgJcxsM7Hp9Rx9KU33'}};
-      };
-
       var broadcast = function(action, obj) {
         $rootScope.$broadcast('companies:' + action, obj);
       };
@@ -21,8 +14,8 @@
 
         create: function (obj) {
           console.log('obj: ', obj);
-          console.log('config(): ', config());
-          $http.post(JOBBER.URL + 'company', obj, config())
+          console.log('config(): ', UsersFactory.config());
+          $http.post(JOBBER.URL + 'company', obj, UsersFactory.config())
             .success(function (res) {
 
               console.log('res: ', res);
@@ -41,16 +34,16 @@
           // Need to return falsey if no data (Dashboard page
           // will not be default home page in this case).
 
-          return $http.get(JOBBER.URL + 'company', config());
+          return $http.get(JOBBER.URL + 'company', UsersFactory.config());
         },
 
         update: function(obj) {
-          $http.put(JOBBER.URL, obj, config())
+          $http.put(JOBBER.URL, obj, UsersFactory.config())
             .success(function () { broadcast('updated'); });
         },
 
         delete: function(obj) {
-          $http.delete(JOBBER.URL, config())
+          $http.delete(JOBBER.URL, UsersFactory.config())
             .success(function () { broadcast('deleted', obj); });
         }
 

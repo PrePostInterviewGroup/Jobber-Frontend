@@ -43,6 +43,11 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('dist/font'));
 });
 
+gulp.task('flaticon', function () {
+  return gulp.src('app/flaticon/**/*')
+    .pipe(gulp.dest('dist/flaticon'));
+});
+
 gulp.task('extras', function () {
   return gulp.src(['app/*.*', '!app/*.html'], {dot: true})
     .pipe(gulp.dest('dist'));
@@ -108,7 +113,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
   gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras'], function () {
+gulp.task('build', ['html', 'images', 'fonts', 'flaticon', 'extras'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

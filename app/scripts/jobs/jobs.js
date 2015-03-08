@@ -18,11 +18,11 @@
 
         console.log(company);
 
-        // if ($scope.isNewCompany) {
-        //   CompaniesFactory.create(company);
-        // } else {
-        //   CompaniesFactory.update(company);
-        // }
+        if ($scope.isNewCompany) {
+          CompaniesFactory.create(company);
+        } else {
+          CompaniesFactory.update(company);
+        }
       };
 
       $scope.openJobModal = function (job) {

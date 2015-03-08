@@ -40,7 +40,7 @@
         templateUrl: 'scripts/users/user.settings.html',
         controller: 'UserProfile'
       })
-      .when('/dashboard', {
+      .when('/events', {
         templateUrl: 'scripts/events/events.html',
         controller: 'Events'
       })
@@ -48,7 +48,7 @@
         templateUrl: 'scripts/jobs/jobs.html',
         controller: 'Jobs'
       })
-      .otherwise('/dashboard');
+      .otherwise('/events');
   })
 
   .run(function ($rootScope, $location) {

@@ -5,6 +5,7 @@ $cBrandDark20: darken($cBrand, 20%);
 $cBrandDark10: darken($cBrand, 10%);
 $cBrandLight25: lighten($cBrand, 25%);
 $cGray9: #999;
+$cPink: #e91e63;
 
 body {
   background: $cBrandLight25;
@@ -31,25 +32,28 @@ nav {
   max-width: 500px;
 }
 
-.nav-wrapper li i:before {
-  font-size: 26px;
+.nav-wrapper li {
+  i:before {
+    font-size: 26px;
+  }
+  i.mdi-notification-event-note:before {
+    font-size: 30px;
+  }
 }
 
 form {
   margin-top: 35px;
 }
 
-// .container {
-//   position: relative;
-// }
+.input-field input[type=text].valid {
+  border-bottom: 1px solid $cBrandDark20;
+  box-shadow: 0 1px 0 0 $cBrandDark20;
+}
 
-// .container2 {
-//   padding: 0 1.5rem;
-//   margin: 0 auto;
-//   max-width: 1280px;
-//   width: 90%;
-// }
-
+.resumes i {
+  font-size: 20px;
+  color: $cPink;
+}
 
 .image {
   width: 100%;
@@ -60,9 +64,6 @@ form {
 }
 
 form.auth {
-  // position: absolute;
-  // bottom: 0;
-  // right: 0;
   margin-top: 10px;
   .row {
     margin: 0;
@@ -74,6 +75,19 @@ form.auth {
 
 form.auth-signup {
   margin-top: 10px;
+}
+
+.file-field input.file-path {
+  margin-left: 10px;
+}
+
+input.file-path {
+  border: none;  // Gets rid of strange artifact on the file upload button
+}
+
+.btn.file-upload {
+  padding: 0 10px;
+  margin-left: 68px;
 }
 
 .register-text {
@@ -93,19 +107,11 @@ section.body {
     min-width: 300px;
     padding: 0 5px;
     }
-  // .view-frame-full {
-  //   float: left;
-  //   width: 100%;
-  //   padding: 0 5px;
-  // }
   .column-header {
     overflow: hidden;
     .column-header-text {
       float: left;
       margin-left: 15px;
-      // h4 {
-      //   margin-left: 5px;
-      // }
     }
     .adder {
       float: left;
@@ -141,17 +147,5 @@ section.body {
     display: none;
   }
 }
-
-// @media (min-width: 601px) {
-//   .container2 {
-//     width: 85%;
-//   }
-// }
-
-// @media (min-width: 993px) {
-//   .container {
-//     width: 70%;
-//   }
-// }
 
 
