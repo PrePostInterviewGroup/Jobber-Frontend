@@ -19,16 +19,37 @@ body {
 }
 
 nav {
-  background: darken($cBrand, 10%);
+  background: $cBrandDark10;
 }
 
 form {
   margin-top: 35px;
 }
 
+.container {
+  position: relative;
+}
+
+.auth-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-image: url(../images/jobber_login_blurpic.png);
+}
+
+form.auth {
+  margin-top: 10px;
+  .row {
+    margin: 0;
+    .input-field {
+      margin: 0;
+    }
+  }
+}
+
 section.body {
   overflow: hidden;
-  margin-top: 40px;
+  // margin-top: 40px;
   .body-title {
     margin-top: 0;
     font-size: 3rem;
@@ -36,20 +57,29 @@ section.body {
   .view-frame-left, .view-frame-right {
     float: left;
     width: 50%;
+    min-width: 300px;
     padding: 0 5px;
     }
+  // .view-frame-full {
+  //   float: left;
+  //   width: 100%;
+  //   padding: 0 5px;
+  // }
   .column-header {
     overflow: hidden;
     .column-header-text {
       float: left;
-      h4 {
-        margin-left: 5px;
-      }
+      margin-left: 15px;
+      // h4 {
+      //   margin-left: 5px;
+      // }
     }
     .adder {
-      // float: right;
       float: left;
       margin: 15px 25px;
+      .btn-floating {
+        background-color: $cBrandDark10;
+      }
     }
   }
   .view-content {
@@ -57,12 +87,25 @@ section.body {
     border: 1px solid #e0e0e0;
     border-radius: 3px;
     background-color: white;
+    &.opp-details {
+      padding: 35px;
+    }
     &.detail {
       padding-top: 35px;
     }
     .collection {
       margin: 0;
+      .collection-item.active {
+        background-color: $cBrandDark10;
+      }
     }
+  }
+}
+
+
+@media (max-width: 992px) {
+  nav .brand-logo {
+    display: none;
   }
 }
 

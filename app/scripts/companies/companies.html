@@ -39,6 +39,36 @@
   </div>
 </div>
 
+<div class="row">
+
+  <div class="column-header">
+    <div class="column-header-text"><h4>Opportunity Details</h4></div>
+  </div>
+
+  <div class="view-content opp-details">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input ng-model="job.summary" id="summary" type="text" class="validate">
+        <label for="summary">Summary</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input ng-model="job.lead" id="lead" type="text" class="validate">
+        <label for="lead">Who provided the lead</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input ng-model="job.phoneScreenDate" id="phoneScreenDate" type="text" class="validate">
+        <label for="phoneScreenDate">Phone screen date</label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <div id="addCompany" class="modal modal-fixed-footer">
   <div class="modal-content">
     <h4>Company Setup</h4>
