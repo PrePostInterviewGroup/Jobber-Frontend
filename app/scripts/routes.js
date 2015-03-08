@@ -26,7 +26,7 @@
         templateUrl: 'scripts/jobs/jobs.html',
         controller: 'Jobs'
       })
-      .otherwise('/events');
+      .otherwise('/settings');
   });
 
 }());

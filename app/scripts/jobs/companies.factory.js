@@ -15,7 +15,7 @@
       create: function (obj) {
         console.log('obj: ', obj);
         console.log('config(): ', UsersFactory.config());
-        $http.post(JOBBER.URL + 'company', obj, UsersFactory.config())
+        $http.post(JOBBER.URL + 'company_detail', obj, UsersFactory.config())
           .success(function (res) {
 
             console.log('res: ', res);
@@ -34,7 +34,7 @@
         // Need to return falsey if no data (Dashboard page
         // will not be default home page in this case).
 
-        return $http.get(JOBBER.URL + 'company', UsersFactory.config());
+        return $http.get(JOBBER.URL + 'company_detail', UsersFactory.config());
       },
 
       update: function(obj) {

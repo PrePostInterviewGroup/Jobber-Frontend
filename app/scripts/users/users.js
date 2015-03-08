@@ -7,7 +7,7 @@
   .controller('Users', function ($scope, $rootScope, $location, UsersFactory) {
 
     // Redirect if signed in (and leave this controller).
-    if (UsersFactory.getCookie()) return $location.path('/dashboard');
+    if (UsersFactory.getCookie()) return $location.path('/settings');
 
     $scope.signup = function (user) {
       if (user.password === user.password_confirmation) {

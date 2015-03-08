@@ -4,7 +4,9 @@
 
   angular.module('jobber.jobs', [])
 
-  .controller('Jobs', function ($scope, $location, UsersFactory, CompaniesFactory, JobsFactory) {
+  .controller('Jobs', function ($scope, $location, UsersFactory, CompaniesFactory, JobsFactory, EventsFactory) {
+
+    console.log('Jobs controller initialized!');
 
     // Redirect if not signed in
     if (!UsersFactory.getCookie()) return $location.path('/signin');
@@ -15,31 +17,35 @@
     $scope.companies = CompaniesFactory.retrieveAll()
       .success(function (res) {
 
-        var fakeCompanies = [
-          {company_id: 1, name: 'Sears', jobs: [
-            {job_id: 44, title: 'Program Director'},
-            {job_id: 63, title: 'Software Engineer'}
-          ]},
-          {company_id: 2, name: 'BoA', jobs: [
-            {job_id: 4, title: 'Junior Developer'},
-            {job_id: 9, title: 'Manager'}
-          ]},
-          {company_id: 3, name: 'CareerBuilder', jobs: [
-            {job_id: 1, title: 'Project Manager', summary: 'Lead a new project', lead: 'John Doe'},
-            {job_id: 2, title: 'Junior Developer', summary: 'Great job (do our grunt work)', lead: 'Pinnochio'}
-          ]}
-        ];
+        // var fakeCompanies = [
+        //   {company_id: 1, name: 'Sears', jobs: [
+        //     {job_id: 44, title: 'Program Director'},
+        //     {job_id: 63, title: 'Software Engineer'}
+        //   ]},
+        //   {company_id: 2, name: 'BoA', jobs: [
+        //     {job_id: 4, title: 'Junior Developer'},
+        //     {job_id: 9, title: 'Manager'}
+        //   ]},
+        //   {company_id: 3, name: 'CareerBuilder', jobs: [
+        //     {job_id: 1, title: 'Project Manager', summary: 'Lead a new project', lead: 'John Doe'},
+        //     {job_id: 2, title: 'Junior Developer', summary: 'Great job (do our grunt work)', lead: 'Pinnochio'}
+        //   ]}
+        // ];
 
-        $scope.companies = res.companies || fakeCompanies;
+        // $scope.companies = res.companies || fakeCompanies;
+        // console.log(res[0].name);
+        $scope.companies = res;
         console.log($scope.companies);
       });
 
     $scope.showJobs = function (company) {
+      // console.log('company: ', company.jobs);
       $scope.jobs = company.jobs;
-      console.log(company.jobs);
+      // console.log(company.jobs);
     };
 
     $scope.showJobDetails = function (job) {
+      console.log('job: ', job);
       $scope.job = job;
     };
 

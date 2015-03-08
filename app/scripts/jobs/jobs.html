@@ -31,7 +31,7 @@
       </div>
       <div class="view-content">
         <div class="collection">
-          <a ng-repeat="job in jobs" ng-click="showJobDetails(job)" ng-class="{active: false}" class="collection-item">{{ job.title }}</a>
+          <a ng-repeat="job in jobs" ng-click="showJobDetails(job)" ng-class="{active: false}" class="collection-item">{{ job.job_title }}</a>
         </div>
       </div>
     </div>
@@ -47,14 +47,14 @@
       <div class="view-content opp-details">
         <div class="row">
           <div class="input-field col s12">
-            <input ng-model="job.summary" id="summary" type="text" class="validate">
-            <label ng-class="{active: job.summary}" for="summary">Summary</label>
+            <input ng-model="job.short_summary" id="summary" type="text" class="validate">
+            <label ng-class="{active: job.short_summary}" for="summary">Summary</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input ng-model="job.lead" id="lead" type="text" class="validate">
-            <label ng-class="{active: job.lead}" for="lead">Who provided the lead</label>
+            <input ng-model="job.lead_source" id="lead" type="text" class="validate">
+            <label ng-class="{active: job.lead_source}" for="lead">Who provided the lead</label>
           </div>
         </div>
       </div>

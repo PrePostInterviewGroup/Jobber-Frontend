@@ -30,7 +30,7 @@
   })
 
   .constant('PATHS', {
-    HOME: '/events'
+    HOME: '/settings'
   });
 
 }());
